@@ -6,7 +6,7 @@ import './Dashboard.css'; // Import the CSS file
 import { FaMale, FaFemale, FaTransgenderAlt } from 'react-icons/fa';
 import { ProgressBar } from 'react-bootstrap';
 import SectionHeader from '../Sectionheader/Sectionheader';
-import axios from 'axios';
+import api, { baseURL } from "../api"
 import CountUp from 'react-countup';
 
 import {
@@ -164,7 +164,7 @@ const Dashboard = ({ user }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/survey_form');
+        const response = await api.get('/survey_form');
         if (response.data) {
           const { total, genderCounts, ageGroupGenderCounts, disabilityGenderCounts, disabilityAgeGroupCounts } = response.data;
           setTotalSurveys(total);

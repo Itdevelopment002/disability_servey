@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import COVER_IMAGE from "../../assets/cover_image.jpg";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api, { baseURL } from "../api";
 import swal from "sweetalert";
 
 const Login = ({ setUser }) => {
@@ -21,7 +21,7 @@ const Login = ({ setUser }) => {
     }
 
     try {
-      const response = await axios.get("http://localhost:5000/api/register");
+      const response = await api.get("/register");
       const users = response.data;
       console.log(users);
       const user = users.find(
