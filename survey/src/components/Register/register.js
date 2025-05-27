@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import COVER_IMAGE from "../../assets/cover_image.jpg";
 import GOOGLE_ICON from "../../assets/google.svg";
-import axios from "axios";
+import api, { baseURL } from "../api"
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
@@ -32,7 +32,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/api/register", {
+      const response = await api.post("/register", {
         Username,
         Password,
         Mobile,

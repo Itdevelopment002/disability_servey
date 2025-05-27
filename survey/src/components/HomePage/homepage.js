@@ -5,7 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './home.css'; // Import the CSS file
 import { MdOutlinePersonAddAlt } from "react-icons/md";
 import { BiSolidUserDetail } from "react-icons/bi";
-import axios from "axios";
+import api, { baseURL } from "../api"
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -97,7 +98,7 @@ const PersonalInfoForm = () => {
 
 
         try {
-            const response = await axios.post('http://localhost:5000/api/survey_form', {
+            const response = await api.post('/survey_form', {
                 name, fatherName, motherName, gender, ageGroup, maritalStatus, category, dob, area, houseNo, villageOrCity, taluka,
                 district, mobileNo, pinCode, eduQualification, physicalHandicapped, disabilityType, boardTypeDisability, disabilityPercentage,
                 disabilityCertificate, helpReceived, careGiver, otherCareGiver
@@ -129,7 +130,7 @@ const PersonalInfoForm = () => {
 
 
         try {
-            const response = await axios.post('http://localhost:5000/api/survey_form', {
+            const response = await api.post('/survey_form', {
                 name, fatherName, motherName, gender, ageGroup, maritalStatus, category, dob, area, houseNo, villageOrCity, taluka,
                 district, mobileNo, pinCode, eduQualification, physicalHandicapped, disabilityType, boardTypeDisability, disabilityPercentage,
                 disabilityCertificate, helpReceived, careGiver, otherCareGiver

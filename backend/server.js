@@ -27,7 +27,7 @@ db.connect(err => {
 });
 
 // SignUp User
-app.post('/api/register', (req, res) => {
+app.post('/register', (req, res) => {
   const { Username, Password, Mobile } = req.body;
 
   const sql = 'INSERT INTO register (Username, Password, Mobile) VALUES (?, ?, ?)';
@@ -40,7 +40,7 @@ app.post('/api/register', (req, res) => {
 });
 
 // Get user signup details
-app.get('/api/register', (req, res) => {
+app.get('/register', (req, res) => {
   const sql = 'SELECT * FROM register';
   db.query(sql, (err, results) => {
     if (err) {
@@ -51,7 +51,7 @@ app.get('/api/register', (req, res) => {
 });
 
 // Get user signup details by id
-app.get('/api/register/:id', (req, res) => {
+app.get('/register/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT * FROM register WHERE id = ?';
   db.query(sql, [id], (err, results) => {
@@ -66,7 +66,7 @@ app.get('/api/register/:id', (req, res) => {
 });
 
 // Submit survey form
-app.post('/api/survey_form', (req, res) => {
+app.post('/survey_form', (req, res) => {
   const {
     name, fatherName, motherName, gender, maritalStatus, category, dob, ageGroup,
     area, houseNo, villageOrCity, taluka, district, mobileNo, pinCode,
@@ -97,7 +97,7 @@ app.post('/api/survey_form', (req, res) => {
 });
 
 // Get all survey forms, gender counts, and gender counts by age group
-app.get('/api/survey_form', (req, res) => {
+app.get('/survey_form', (req, res) => {
   // Query to get all survey forms
   const sql1 = 'SELECT * FROM survey_form ORDER BY id';
 
